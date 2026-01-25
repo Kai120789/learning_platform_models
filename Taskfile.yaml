@@ -1,0 +1,22 @@
+version: "3"
+
+dotenv:
+  - .env
+
+tasks:
+  default:
+    cmds:
+      - task: migrate_up
+      - task: migrate_down
+  migrate_up:
+    aliases:
+      - gen
+    desc: "up migrations to postgres db"
+    cmds:
+      -  migrate -path ./migrations -database "${DBDSN}?sslmode=disable" up
+  migrate_down:
+    aliases:
+      - gen
+    desc: "down migrations to postgres db"
+    cmds:
+      - migrate -path ./migrations -database "${DBDSN}?sslmode=disable" down
