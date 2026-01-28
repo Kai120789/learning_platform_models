@@ -11,6 +11,6 @@ CREATE TABLE IF NOT EXISTS user_info (
     city VARCHAR(50),
     about VARCHAR(1000),
     role role_enum,
-    status status_enum,
+    status status_enum DEFAULT 'ACTIVE' NOT NULL,
     class INTEGER
 );
